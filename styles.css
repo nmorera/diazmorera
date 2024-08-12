@@ -1,58 +1,131 @@
- body {background-color:white;
-       font-size:120%;
-       align:justify;
-       margin: 100px; 
-       }
+<style type="text/css">
 
- h1   {color:black;
-       Font-family: verdana;
-       font-size: 200%;
-       }
+/*COLORS
+	darkblue - 1d2d53
+	mediumblue - 284ba0
+	lightgrey - 8FA2CF
+	orange - a07818
+	brown - 53341d
 
- h2   {color:black;
-       Font-family: verdana;
-       font-size: 180%;
-       margin-bottom: 10px;
-       }
+	light steel blue - acc7e5
+	yankees blue - 151e3b
+	pastel purple - B5ABB4
+	alabaster - F2E9E4
+*/
 
- h3   {color:black;
-       Font-family: verdana;
-       font-size: 140%;
-       margin-top: 0px;
-       margin-bottom: 0px;
-       }
+html {
+	height: 100%;
+}
 
- p    {color:black;
-       font-family: verdana;
-       font-size: 120%;
-       border: 5px solid powdergreen;
-       padding: 10px;
-       margin-top: 0px;
-       margin-bottom: 0px;
-       text-align:justify;
-      }
+body {
+	background-color: #ACC7E5;
+}
 
- a:link {
-  color: blue;
-  background-color: transparent;
-  text-decoration: none;
-  }
+header {
+	/*background-color: #1d2d53;*/
+	font: 28pt arial;
+	color: #1d2d53;
+	margin: 20px 20px;
+	padding: 10px 10px;
+	/*border-radius: 10px;*/
+	display: inline-table;
+}
 
- a:visited {
-  color: blue;
-  background-color: transparent;
-  text-decoration: none;
-  }
+table td {
+	padding: 10px 10px;
+}
 
-hr.line2 {
-	border-top: 3px double #8c8b8b;
-         }
+td h2 {
+	font: 22pt arial;
+	color: #1d2d53;
+}
 
-pre {
-  display: block;
-  font-family: verdana;
-  white-space: pre;
-  Font-size:80%;
-  margin: 1em 0;
-  text-align:right;
-} 
+td p {
+	font: 14pt arial;
+	color: #1d2d53;
+}
+
+nav {
+	background-color: #1d2d53;
+	margin: 0px 20px;
+	padding: 0;
+	border-radius: 10px;
+}
+
+nav ul {
+	list-style: none;
+	padding-left: 10px;
+	display: inline-table;
+	margin: 10px 0px;
+}
+
+nav ul li {
+	display: inline-table;
+	float: left;
+	padding: 0px 10px;
+	margin: 0;
+}
+
+nav ul li a {
+	color: lightgrey;
+	text-decoration: none;
+	font: 14pt arial;
+	display: block;
+}
+
+nav ul li:hover {
+	background: #F2E9E4;
+	display:  inline-table; 
+	padding: 0px 10px;
+}
+
+nav ul li a:hover {
+	color: #1d2d53;
+	text-decoration: none;
+	font: 14pt arial;
+}
+
+#rounded {
+	border-radius: 10px;
+	background-color: #F2E9E4;
+	margin: 20px 20px;
+	padding: 10px 20px;
+	font: 14pt arial;
+	color: #1d2d53;
+}
+
+#rounded h2 {
+	font: 22pt arial;
+	color: #1d2d53;
+}
+
+#rounded p {
+	margin: 10px 0px;
+}
+
+#rounded ul li {
+	margin: 10px 0px;
+}
+
+#rounded ol li {
+	margin: 10px 0px;
+}
+
+#rounded dl dt {
+	margin: 0px 0px;
+	font-weight: bold;
+}
+
+#rounded dl dd {
+	margin: 10px 20px;
+}
+
+#my-chart.column {
+  height: 300px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+#rounded img {
+	max-width: 800px;
+}
