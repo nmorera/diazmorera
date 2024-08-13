@@ -21,7 +21,7 @@ header {
   font-size: 23px;
 
   grid-area: header;
-  justify-self: left;
+  justify-self: center;
   align-self: end;
 }
 
