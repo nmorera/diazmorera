@@ -21,6 +21,17 @@ body {
 	background-color: #ACC7E5;
 }
 
+
+@media screen and (max-width: 430px) {
+  body {
+    grid-template-columns: auto;
+    grid-template-rows: minmax(40px,auto) minmax(30px,auto) auto;
+    grid-template-areas:
+    "header"
+    "nav"
+    "ct"
+  }
+
 header {
 	/*background-color: #1d2d53;*/
 	font: 28pt arial;
