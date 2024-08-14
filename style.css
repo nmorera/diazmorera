@@ -38,6 +38,33 @@ nav a {
   text-align: right;
 }
 
+table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  width: 100%;
+  font-size: 90%;
+  thead tr th {
+    background-color: $darkoffWhite;
+  }
+  tbody tr {
+
+    th {
+      font-weight: bold;
+    }
+
+    td {
+      word-wrap: normal;
+      max-width: 90%;
+    }
+  }
+
+  th, td {
+    text-align: left;
+    padding: 4px 8px;
+    border-bottom: 1px solid $lightGray;
+  }
+}
+
 article {
   font-size: 16px;
 
