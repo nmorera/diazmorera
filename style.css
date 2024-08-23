@@ -46,8 +46,8 @@ table {
   thead tr th {
     background-color: $darkoffWhite;
   }
-  tbody tr {
-
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
     th {
       font-weight: bold;
     }
