@@ -43,7 +43,6 @@ table {
   margin: 25px 0;
   width: 100%;
   font-size: 90%;
-}
   thead tr th {
     background-color: $darkoffWhite;
   }
