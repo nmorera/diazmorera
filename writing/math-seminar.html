@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fitchburg State University — Math Seminar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --card:#fafafa;
+      --muted:#374151;
+      --accent:#004c23; /* fitchburg maroon-like */
+      --accent-2:#f4b41a; /* accent gold */
+      --glass: rgba(0,0,0,0.04);
+      --max-width:1100px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: light;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#fff 0%, #f7f7f9 100%);color:var(--muted)}
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#a03b3b);display:grid;place-items:center;font-weight:800;color:white}
+    .logo span{font-size:22px}
+    h1{margin:0;font-size:20px}
+    .subtitle{color:var(--muted);font-size:13px}
+    nav a{margin-left:18px;font-weight:600;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px;align-items:start}
+
+    .card{background:var(--card);border:1px solid var(--glass);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(20,20,30,0.04)}
+    .hero-left h2{margin:0 0 8px 0;font-size:28px}
+    .lead{color:var(--muted);margin-bottom:14px}
+
+    .talks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:16px}
+    .talk{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.00));border:1px solid rgba(0,0,0,0.03)}
+    .talk h3{margin:0 0 6px 0;font-size:16px}
+    .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
+    .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(122,43,43,0.06);font-weight:600;font-size:12px;color:var(--accent)}
+
+    .sidebar .next{font-size:14px;margin-bottom:6px}
+    .schedule{margin-top:12px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px;border-bottom:1px dashed rgba(0,0,0,0.06);text-align:left;font-size:13px}
+    th{color:var(--muted);font-weight:700}
+
+    .footer{margin-top:34px;padding:18px;border-radius:10px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .logo{width:56px;height:56px}
+    }
+
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#a24747);color:white;font-weight:700}
+    .muted{color:var(--muted)}
+    .search{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent;color:inherit}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo"><span>FSU</span></div>
+        <div>
+          <h1>Fitchburg State — Math Seminar</h1>
+          <div class="subtitle">Hosted by the <a href="https://www.fitchburgstate.edu/academics/academic-schools/school-health-and-natural-sciences/mathematics-department">Mathematics Department</a></div>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">Home</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left card">
+        <h2 id="about">Welcome — Seminar Series</h2>
+        <p class="lead">The Fitchburg State Math Seminar invites faculty, students, and 
+            visitors to join us in exploring a wide range of topics in pure and applied mathematics. 
+            Each session is open to the public and offers a welcoming space for mathematical 
+            discussion—plus refreshments after the talk!</p>
+
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <a class="btn" href="#schedule">See upcoming talks</a>
+          <a class="muted" href="#contact">Contact organizers</a>
+        </div>
+
+        <h3 style="margin-top:18px">Upcoming talks</h3>
+        <div class="talks" id="talks">
+          <article class="talk">
+            <div class="meta">Oct 31, 2025 — 2:00pm • Percival Hall 209</div>
+            <h3>The world through an analyst's lens...</h3>
+            <div class="muted">Dr. <a href="https://www.padifuster.com/">Padi Fuster</a> (NSF MPS Ascend Postdoctoral fellow at the University of Colorado Boulder)</div>
+            <div style="margin-top:8px"><span class="tag">Partial Differential Equation (PDE)</span> <span class="tag">Differential Geometry</span></div>
+          </article>
+
+          <article class="talk">
+            <div class="meta">TBA</div>
+            <h3>TBA</h3>
+            <div class="muted">Dr. <a href="https://sites.google.com/oregonstate.edu/leah-sturman/home">Leah Sturman</a></div>
+            <div style="margin-top:8px"><span class="tag">Number Theory</span> <span class="tag">Combinatorics</span></div>
+          </article>
+        </div>
+
+      </div>
+
+      <aside class="sidebar card" style="position:relative">
+        <div class="next">Next talk</div>
+        <div style="font-weight:700">Oct 31, 2025 — 2:00pm</div>
+        <div class="muted" style="margin-bottom:12px">Dr. <a href="https://www.padifuster.com/">Padi Fuster</a> — The world through an analyst's lens</div>
+
+        <div class="schedule">
+          <h4 style="margin:6px 0">Schedule</h4>
+          <table>
+            <thead><tr><th>Date</th><th>Speaker</th></tr></thead>
+            <tbody>
+              <tr><td>Oct 31, 2025</td><td>Dr. <a href="https://www.padifuster.com/">Padi Fuster</a></td></tr>
+              <tr><td>TBA</td><td>Dr. <a href="https://sites.google.com/oregonstate.edu/leah-sturman/home">Leah Sturman</a></td></tr>
+              <tr><td>TBA</td><td>Dr. <a href="https://www.mtholyoke.edu/directory/faculty-staff/cristian-rodriguez-avila">Cristian Rodriguez Avila</a></td></tr>
+             
+            </tbody>
+          </table>
+        </div>
+         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <a class="btn" href="#schedule">Past Talks • Archive </a>
+        <div class="talks" id="talks">
+          <article class="talk">
+            <div class="meta">April 25, 2025 — 2:00pm • Percival Hall 209</div>
+            <h3>Colored Tilings on Graphs • <a href = "../beamer/diego-seminar.pdf">slides</a> </h3>
+            <div class="muted">Dr. <a href="https://sites.google.com/view/dvillami/">Diego Villamizar</a> (Assistant Professor at Xavier University of Louisiana)</div>
+            <div style="margin-top:8px"><span class="tag">Enumerative Combinatorics</span> <span class="tag">Percolation</span></div>
+          </article>
+        </div>
+        </div>
+      </aside>
+      
+    </section>
+
+    <section id="contact" style="margin-top:22px">
+      <div class="card">
+        <h3>Organizers</h3>
+        <p class="muted">For scheduling and recording requests, contact the seminar organizers:</p>
+        <ul>
+          <li>Prof.  <a href="https://www.fitchburgstate.edu/about/directory/mary-ann-barbato ">Mary Ann Barbato</a> — <a href="mailto:msaadi@fitchburgstate.edu">msaadi@fitchburgstate.edu</a></li>
+          <li>Dr. Fernando Diaz Morera — <a href="mailto:ndiazmor@fitchburgstate.edu">ndiazmor@fitchburgstate.edu</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="footer card">
+      © <span id="year"></span> Fitchburg State University • Department of Mathematics 
+    </div>
+  </div>
+
+  <script>
+    // small dynamic bits
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // client-side search (very small dataset)
+    const search = document.getElementById('search');
+    const talks = Array.from(document.querySelectorAll('.talk'));
+    search.addEventListener('input', ()=>{
+      const q = search.value.trim().toLowerCase();
+      talks.forEach(t => {
+        const text = (t.innerText || '').toLowerCase();
+        t.style.display = text.indexOf(q) === -1 ? 'none' : '';
+      });
+    });
+  </script>
+</body>
+</html>
