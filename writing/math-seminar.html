@@ -9,6 +9,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
+  /* Abstract Toggle Styles */
+.abstract {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.abstract summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+  user-select: none;
+  display: inline-block;
+  margin-bottom: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.abstract summary:hover {
+  opacity: 0.8;
+}
+
+/* Styles the actual text of the abstract once expanded */
+.abstract-text {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--muted);
+  padding: 8px 12px;
+  background: var(--bg);
+  border-left: 3px solid var(--glass);
+  border-radius: 0 4px 4px 0;
+}
+    /* Update the existing .talk class to use flexbox */
+.talk {
+  padding: 12px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.00));
+  border: 1px solid rgba(0,0,0,0.03);
+  display: flex;          /* NEW: Aligns items in a row */
+  gap: 16px;              /* NEW: Adds space between the image and text */
+  align-items: start;     /* NEW: Aligns everything to the top */
+}
+
+/* Add these new classes for the image and text */
+.talk-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;     /* Makes the image a circle. Change to 8px for rounded squares */
+  object-fit: cover;      /* Prevents the image from stretching */
+  flex-shrink: 0;         /* Prevents the image from shrinking on small screens */
+  border: 1px solid var(--glass);
+}
+
+.talk-content {
+  flex: 1;                /* Allows the text to take up the remaining space */
+}
     :root{
       --bg:#ffffff;
       --card:#fafafa;
@@ -31,11 +85,11 @@
     h1{margin:0;font-size:20px}
     .subtitle{color:var(--muted);font-size:13px}
     nav a{margin-left:18px;font-weight:600;color:var(--muted)}
+    
     .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px;align-items:start}
-
     .card{background:var(--card);border:1px solid var(--glass);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(20,20,30,0.04)}
     .hero-left h2{margin:0 0 8px 0;font-size:28px}
-    .lead{color:var(--muted);margin-bottom:14px}
+    .lead{color:var(--muted);margin-bottom:14px; line-height: 1.5}
 
     .talks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:16px}
     .talk{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.00));border:1px solid rgba(0,0,0,0.03)}
@@ -59,7 +113,12 @@
 
     .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#a24747);color:white;font-weight:700}
     .muted{color:var(--muted)}
-    .search{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);background:transparent;color:inherit}
+    
+    /* Search Bar Styling */
+    .search{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.1);background:var(--bg);color:inherit;margin-bottom: 16px; font-family: 'Inter', sans-serif;}
+    .search:focus {outline: 2px solid var(--accent); border-color: transparent;}
+    
+    .section-title {margin-top: 32px; margin-bottom: 8px; font-size: 22px;}
   </style>
 </head>
 
@@ -84,82 +143,100 @@
         <p class="lead">The Fitchburg State Math Seminar invites faculty, students, and 
             visitors to join us in exploring a wide range of topics in pure and applied mathematics. 
             Each session is open to the public and offers a welcoming space for mathematical 
-            discussion—plus refreshments after the talk!</p>
+            discussion—plus refreshments after the talk (sometimes)!</p>
 
         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
           <a class="btn" href="#schedule">See upcoming talks</a>
           <a class="muted" href="#contact">Contact organizers</a>
         </div>
 
-        <h3 style="margin-top:18px">Upcoming talks</h3>
-        <div class="talks" id="talks">
-          <article class="talk">
-            <div class="meta">Oct 31, 2025 — 2:00pm • Percival Hall 209</div>
-            <h3>The world through an analyst's lens...</h3>
-            <div class="muted">Dr. <a href="https://www.padifuster.com/">Padi Fuster</a> (NSF MPS Ascend Postdoctoral fellow at the University of Colorado Boulder)</div>
-            <div style="margin-top:8px"><span class="tag">Partial Differential Equation (PDE)</span> <span class="tag">Differential Geometry</span></div>
-          </article>
+        <h3 style="margin-top:24px">Upcoming talks</h3>
+        <div class="talks" id="upcoming-talks">
 
-          <article class="talk">
-            <div class="meta">TBA</div>
-            <h3>TBA</h3>
-            <div class="muted">Dr. <a href="https://sites.google.com/oregonstate.edu/leah-sturman/home">Leah Sturman</a></div>
-            <div style="margin-top:8px"><span class="tag">Number Theory</span> <span class="tag">Combinatorics</span></div>
-          </article>
+           <article class="talk">
+              <img src="https://ui-avatars.com/api/?name=Leah+Sturman&background=004c23&color=fff" alt="Leah Sturman Placeholder" class="talk-img">
+              <div class="talk-content">
+              <div class="meta">April 7, 2026 — 3:30pm • Mazzaferro Center</div>
+              <h3>Counting Methods from the Perspective of Integer Partitions</h3>
+              <div class="muted">Dr. <a href="https://www.southernct.edu/directory/sturmanl1">Leah Sturman</a>(Assistant Professor at Southern Connecticut State <U></U>niversity)</div>
+              
+              <div style="margin-top:8px">
+              <span class="tag">Number Theory</span> 
+              <span class="tag">Combinatorics</span>
+              </div>
+        <details class="abstract">
+      <summary>Read Abstract</summary>
+      <p class="abstract-text">
+                Often, the most intuitive way to count something is to make a list of all the options and then count them. 
+                However, this method is prone to small, hard to find mistakes (imagine missing one case from a list of hundreds). 
+                Also, it's tedious! How can we avoid directly counting the elements of a set? We will explore some of 
+                the methods used in combinatorics, particularly generating functions, diagrams, and recursions from the perspective 
+                of integer partitions.
+      </p>
+    </details>
+              </div>
+           </article>
         </div>
 
       </div>
 
       <aside class="sidebar card" style="position:relative">
+        <input type="text" id="search" class="search" placeholder="Search talks by title, topic, or speaker..." />
+        
         <div class="next">Next talk</div>
-        <div style="font-weight:700">Oct 31, 2025 — 2:00pm</div>
-        <div class="muted" style="margin-bottom:12px">Dr. <a href="https://www.padifuster.com/">Padi Fuster</a> — The world through an analyst's lens</div>
+        <div style="font-weight:700">April 7, 2026 — 3:30pm</div>
+        <div class="muted" style="margin-bottom:12px">Dr. Dr. <a href="https://www.southernct.edu/directory/sturmanl1">Leah Sturman</a> — Counting Methods from the Perspective of Integer Partitions</div>
 
-        <div class="schedule">
+        <div class="schedule" id="schedule">
           <h4 style="margin:6px 0">Schedule</h4>
           <table>
             <thead><tr><th>Date</th><th>Speaker</th></tr></thead>
             <tbody>
-              <tr><td>Oct 31, 2025</td><td>Dr. <a href="https://www.padifuster.com/">Padi Fuster</a></td></tr>
-              <tr><td>TBA</td><td>Dr. <a href="https://sites.google.com/oregonstate.edu/leah-sturman/home">Leah Sturman</a></td></tr>
-              <tr><td>TBA</td><td>Dr. <a href="https://www.mtholyoke.edu/directory/faculty-staff/cristian-rodriguez-avila">Cristian Rodriguez Avila</a></td></tr>
+              <tr><td>TBA</td><td>Dr. <a href="">Eavesdropper</a></td></tr>
              
             </tbody>
           </table>
         </div>
-         <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-          <a class="btn" href="#schedule">Past Talks • Archive </a>
-           
-        <div class="talks" id="talks">
-          <article class="talk">
-            <div class="meta">October 31, 2025 — 2:00pm • Percival Hall 209</div>
-            <h3>The world through an analyst's lens • <a href = "../beamer/padi-talk.pdf">Slides</a> </h3>
-            <div class="muted">Dr. <a href="https://www.padifuster.com/">Padi Fuster</a> (NSF MPS Ascend Postdoctoral fellow at the University of Colorado Boulder)</div>
-            <div style="margin-top:8px"><span class="tag">PDE</span> <span class="tag">Differential Geometry</span></div>
-          </article>
-        </div>
-
-         <div class="talks" id="talks">
-          <article class="talk">
-            <div class="meta">April 25, 2025 — 2:00pm • Percival Hall 209</div>
-            <h3>Colored Tilings on Graphs • <a href = "../beamer/diego-seminar.pdf">Slides</a> </h3>
-            <div class="muted">Dr. <a href="https://sites.google.com/view/dvillami/">Diego Villamizar</a> (Assistant Professor at Xavier University of Louisiana)</div>
-            <div style="margin-top:8px"><span class="tag">Enumerative Combinatorics</span> <span class="tag">Percolation</span></div>
-          </article>
-        </div>
-
-           
-        </div>
       </aside>
-      
     </section>
 
-    <section id="contact" style="margin-top:22px">
+    <section id="archive">
+      <h2 class="section-title">Past Talks • Archive</h2>
+      <div class="talks" id="archive-talks">
+        <article class="talk">
+         <img src="images/padi-fuster.jpg" alt="Dr. Padi Fuster" class="talk-img">
+         <div class="talk-content">
+         <div class="meta">Oct 31, 2025 — 2:00pm • Percival Hall 209</div>
+         <h3>The world through an analyst's lens...</h3>
+         <div class="muted">Dr. <a href="https://www.padifuster.com/">Padi Fuster</a> (NSF MPS Ascend Postdoctoral fellow at the University of Colorado Boulder)</div>
+         <div style="margin-top:8px">
+        <span class="tag">Partial Differential Equation (PDE)</span> 
+        <span class="tag">Differential Geometry</span>
+      </div>
+      </div>
+      </article>
+
+
+      <div class="talks" id="archive-talks">
+        <article class="talk">
+         <img src="images/padi-fuster.jpg" alt="Dr. Diego Villamizar" class="talk-img">
+         <div class="talk-content">
+         <div class="meta">April 25, 2025 — 2:00pm • Percival Hall 209</div>
+         <h3>Colored Tilings on Graphs • <a href="../beamer/diego-seminar.pdf">Slides</a></h3>
+         <div class="muted">Dr. <a href="https://sites.google.com/view/dvillami/">Diego Villamizar</a> (Assistant Professor at Xavier University of Louisiana)</div>
+         <div style="margin-top:8px"><span class="tag">Enumerative Combinatorics</span> <span class="tag">Percolation</span></div>
+      </div>
+      </div>
+      </article>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:32px">
       <div class="card">
         <h3>Organizers</h3>
         <p class="muted">For scheduling and recording requests, contact the seminar organizers:</p>
         <ul>
-          <li>Prof.  <a href="https://www.fitchburgstate.edu/about/directory/mary-ann-barbato ">Mary Ann Barbato</a> — <a href="mailto:msaadi@fitchburgstate.edu">msaadi@fitchburgstate.edu</a></li>
+          <li>Prof. <a href="https://www.fitchburgstate.edu/about/directory/mary-ann-barbato">Mary Ann Barbato</a> — <a href="mailto:msaadi@fitchburgstate.edu">msaadi@fitchburgstate.edu</a></li>
           <li>Dr. Fernando Diaz Morera — <a href="mailto:ndiazmor@fitchburgstate.edu">ndiazmor@fitchburgstate.edu</a></li>
         </ul>
       </div>
@@ -177,13 +254,17 @@
     // client-side search (very small dataset)
     const search = document.getElementById('search');
     const talks = Array.from(document.querySelectorAll('.talk'));
-    search.addEventListener('input', ()=>{
-      const q = search.value.trim().toLowerCase();
-      talks.forEach(t => {
-        const text = (t.innerText || '').toLowerCase();
-        t.style.display = text.indexOf(q) === -1 ? 'none' : '';
+    
+    // Wrapped in an if-statement just in case the element ever gets removed
+    if (search) {
+      search.addEventListener('input', () => {
+        const q = search.value.trim().toLowerCase();
+        talks.forEach(t => {
+          const text = (t.innerText || '').toLowerCase();
+          t.style.display = text.indexOf(q) === -1 ? 'none' : '';
+        });
       });
-    });
+    }
   </script>
 </body>
 </html>
