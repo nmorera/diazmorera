@@ -1,126 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
-
-	
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-	
-  <title>Fernando Díaz Morera </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fernando Díaz Morera</title>
+    <meta name="google-site-verification" content="ZqVeyut048uPX_0RrIXeNITXvs0lQDD-DHpEN4ybNcI" />
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script> 
 
-  <meta name="google-site-verification" content="ZqVeyut048uPX_0RrIXeNITXvs0lQDD-DHpEN4ybNcI" />
-	
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"> </script> 
-	
- </head>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text-main: #333333;
+            --text-muted: #4a4a4a;
+            --accent: #004c23; /* Fitchburg Green */
+            --accent-hover: #003619;
+            --border: #eaeaea;
+            --max-width: 1100px; /* Optimal width for readability without excessive margins */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
 
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            /* Ensures the body takes up the full width, preventing unintended right-side void */
+            width: 100vw; 
+            overflow-x: hidden; 
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto; /* Perfectly centers the container on the screen */
+            padding: 2rem 5%; /* Percentage-based padding scales dynamically, reducing fixed empty space */
+        }
+
+        /* Header & Navigation */
+        header {
+            font-size: 2.6rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(0, 76, 35, 0.05);
+            color: var(--accent);
+        }
+
+        hr.line2 {
+            border: 0;
+            height: 1px;
+            background: var(--border);
+            margin: 2.5rem 0;
+        }
+
+        /* Two-Column Layout */
+        .main-layout {
+            display: flex;
+            gap: 4rem; /* Generous gap to separate the sidebar and main text cleanly */
+            align-items: flex-start;
+            justify-content: space-between; /* Pushes the columns to fill the available width */
+        }
+
+        /* Left Column (Picture & Contact) */
+        .left-column {
+            flex: 0 0 280px; /* Fixed, proportional width for the sidebar */
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .profile-pic {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+
+        .contact-box {
+            background: #fafafa;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-box h3 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-item a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Right Column (About & CV) */
+        .right-column {
+            flex: 1; /* Allows the text column to expand and consume all remaining horizontal space */
+            min-width: 0; /* Prevents text from overflowing the flex container */
+        }
+
+        .right-column h2 {
+            margin-top: 0;
+            font-size: 1.85rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .right-column p {
+            margin-bottom: 1.25rem;
+            color: var(--text-muted);
+            font-size: 1.15rem; /* Larger font ensures text fills out the width gracefully */
+            text-align: justify;
+        }
+        
+        .right-column a.inline-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .right-column a.inline-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Literary Quote */
+        .quote-block {
+            margin: 4rem 0 2rem auto; /* Shifts the quote slightly to align nicely with the right column */
+            max-width: 800px;
+            padding: 2rem 2.5rem;
+            background-color: #fafafa;
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .quote-block cite {
+            display: block;
+            margin-top: 1rem;
+            font-weight: 600;
+            font-style: normal;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .container {
+                padding: 1.5rem 5%;
+            }
+            .main-layout {
+                flex-direction: column;
+                align-items: center;
+                gap: 2.5rem;
+            }
+            .left-column {
+                width: 100%;
+                max-width: 320px;
+            }
+            .right-column p {
+                text-align: left; /* Justified text looks bad on phones */
+            }
+            .quote-block {
+                margin: 3rem auto 2rem; /* Centers quote on smaller screens */
+            }
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
 
 <body>
-  <header>
-		Fernando Díaz Morera
-  </header>
+    <div class="container">
+        
+        <header>
+            Fernando Díaz Morera
+        </header>
 
-    <nav>
-       <a href="index.html" title="Home">Home</a>
-       <a href="writing/research.html" title="Research">Research</a>
-       <a href="teachin/teaching.html" title="Teaching">Teaching</a>
-	   <a href="writing/math-seminar.html" title="Seminar">Math Seminar</a>
-    </nav>
+        <nav>
+            <a href="index.html" title="Home">Home</a>
+            <a href="writing/research.html" title="Research">Research</a>
+            <a href="teachin/teaching.html" title="Teaching">Teaching</a>
+            <a href="writing/math-seminar.html" title="Seminar">Math Seminar</a>
+        </nav>
 
+        <hr class="line2">
 
-<hr class="line2">
+        <div class="main-layout">
+            
+            <!-- LEFT COLUMN: Picture & Contact -->
+            <aside class="left-column">
+                <img src="./images/ubala2024.jpeg" alt="Fernando Diaz Morera" class="profile-pic">
+                
+                <div class="contact-box">
+                    <h3>Contact</h3>
+                    
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <a href="mailto:ndiazmor@fitchburgstate.edu">ndiazmor@fitchburgstate.edu</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>Office</strong>
+                        Edgerly Hall 301F<br>
+                        Fitchburg State University, MA
+                    </div>
+                    
+                    <div class="contact-item">
+                        <strong>Student Hours</strong>
+                        Monday: 12:00–1:50pm or 3:00–4:00pm<br>
+                        Thursday: 3:30–4:30pm
+                    </div>
+                </div>
+            </aside>
 
-   <article>	
-	
-		<table>
-			<tr>
-				<td width="30%">
-					<figure>
-						<img src="./images/ubala2024.jpeg" alt="bla bla" width="300" align="right">
-					</figure>
-				</td>
+            <!-- RIGHT COLUMN: About & CV -->
+            <section class="right-column">
+                <h2>About</h2>
+                
+                <p>
+                    Hola/Hello/Oi! My name is Fernando Diaz Morera (he/él), and I am an Assistant Professor at 
+                    <a href="https://www.fitchburgstate.edu/academics/academic-schools/school-health-and-natural-sciences/mathematics-department" class="inline-link" target="_blank">Fitchburg State University</a>, MA. 
+                    I earned my Ph.D. in Mathematics from Tulane University under the guidance of Prof. <a href="https://mahirbilencan.github.io/" class="inline-link" target="_blank">Mahir B. Can</a>.
+                </p>    
+                
+                <p>
+                    My research interests encompass a broad range of topics in algebraic groups, coding theory, and combinatorics.
+                </p>
 
-				<td width="70%">
-					<h2>About</h2>
+                <p>
+                    Prior to my Ph.D., I completed my M.S. at <a href="https://www.esfm.ipn.mx/" class="inline-link" target="_blank">ESFM-IPN</a> in Ciudad de México and my B.S. at 
+                    <a href="https://www.usergioarboleda.edu.co/" class="inline-link" target="_blank">Universidad Sergio Arboleda</a> in Bogotá. 
+                    Outside of mathematics, I enjoy playing V-ball, running, cycling, and exploring the outdoors.   
+                </p>
 
-					<p align="justify">
-                                           Hola/Hello/Oi! My name is Fernando Diaz Morera (he/él), and I am an Assistant Professor at 
-										   <a href="https://www.fitchburgstate.edu/academics/academic-schools/school-health-and-natural-sciences/mathematics-department">Fitchburg State University,</a> MA.
-						              I earned my Ph.D. in Mathematics from Tulane University under the guidance of Prof. <a href="https://www2.tulane.edu/~mcan/">Mahir B. Can</a>.
-					</p>	
-                                        <p align="justify">
-						My research interests encompass a broad range of topics in algebraic group, coding theory, and combinatorics.
-					</p>
+                <a href="./beamer/modern-cv.pdf" class="btn" target="_blank">View my Curriculum Vitae</a>
+            </section>
 
-     	<p align="justify">
-          Prior to my Ph.D., I completed my M.S. at <a href="https://www.esfm.ipn.mx/">ESFM-IPN</a> in Ciudad de México and my B.S. at 
-		<a href="https://www.usergioarboleda.edu.co/">Universidad Sergio Arboleda</a> in Bogot&#225.
-		Outside of mathematics, I enjoy playing V-ball, running, cycling, and exploring the outdoors. 	
-        </p>
+        </div> <!-- End of Two-Column Layout -->
 
+        <div class="quote-block">
+            "But then I felt possessed by an aura of inspiration that allowed me to improvise credible answers and miraculous lucky guesses. Except in mathematics, which not even God could make me understand."
+            <cite>— Gabriel García Márquez, Living to Tell the Tale, p. 204</cite>
+        </div>
+        
+        <hr class="line2">
 
+        <footer>
+            <div class="hit-counter">
+                <a href="https://www.digits.net" target="_blank">
+                    <img src="https://counter.digits.net/?counter={4bfed78a-a2ee-4f54-91de-df41e3774f5c}&template=simple" alt="Hit Counter by Digits" border="0"/>
+                </a>
+            </div>
+            
+            <div class="last-updated" id="result">
+                <!-- JavaScript will populate the date here -->
+            </div>
+        </footer>
 
+    </div>
 
-	<h4>You can find a copy of my <a href = "./beamer/modern-cv.pdf">CV here</a>.</h4>
-
-        <div class="container-fluid">
-       <h3>Contact</h3>
-                       <table>
-				<tbody>
-                                     <tr>
-					<th style="text-align:right">Email</th>
-	    			        <td><a href="mailto:ndiazmor@fitchburgstate.edu">ndiazmor@fitchburgstate.edu</a></td>
-	                             </tr>
-                                     <tr>
-					 <th style="text-align:right">Office</th>
-	    				 <td>Edgerly Hall  301F, Fitchburg State University, MA</td>
-				     </tr>
-				      <tr>
-				         <th style="text-align:right">Student Hours</th>
-	    				 <td>Monday and Friday: 2:30-3:30pm. Wednesday 3:30-4:30pm.</td>
-				      </tr>
-				</tbody>
-			</table>
-	</div>
-					
-
-				
-				</td>
-			</tr>
-		</table>
-		
-	
-<hr class="line2">
-
-<div id = "container-fluid">
-      <table>
-				<tbody>
-                                     <tr>
-					<td style="text-align:right"><a href="https://www.digits.net" target="_blank">
-                                        <img src="https://counter.digits.net/?counter={4bfed78a-a2ee-4f54-91de-df41e3774f5c}&template=simple" 
-                                          alt="Hit Counter by Digits" border="0"/>
-                                        </a>
-					</td>
-	    			        <td>
-					</td>
-					     <td><div id = "result"></div>
-	                              <script>
-                                           var date = document.lastModified;
-                                           document.getElementById("result").innerHTML = "Updated: " + date;
-                                             </script>
-					</td>
-	                             </tr>
-				</tbody>
-			</table>
-	    
-    </div>   
- </article>
-<pre><q><cite>But then I felt possessed by an aura of 
-inspiration that allowed me to improvise credible 
-answers and miraculous lucky guesses. Except in mathematics, 
-which not even God could make me understand</cite></q>.
-            Gabriel Garc&#237a M&#225;rquez, Living to Tell the Tale, p.204.</pre>	
-					 
+    <script>
+        const date = new Date(document.lastModified);
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById("result").innerHTML = "Last updated: " + date.toLocaleDateString(undefined, options);
+    </script>
 </body>
-</html> 
+</html>
