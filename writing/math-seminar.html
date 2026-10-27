@@ -9,116 +9,95 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-  /* Abstract Toggle Styles */
-.abstract {
-  margin-top: 12px;
-  font-size: 13px;
-}
-
-.abstract summary {
-  cursor: pointer;
-  color: var(--accent);
-  font-weight: 600;
-  user-select: none;
-  display: inline-block;
-  margin-bottom: 8px;
-  transition: opacity 0.2s ease;
-}
-
-.abstract summary:hover {
-  opacity: 0.8;
-}
-
-/* Styles the actual text of the abstract once expanded */
-.abstract-text {
-  margin: 0;
-  line-height: 1.6;
-  color: var(--muted);
-  padding: 8px 12px;
-  background: var(--bg);
-  border-left: 3px solid var(--glass);
-  border-radius: 0 4px 4px 0;
-}
-    /* Update the existing .talk class to use flexbox */
-.talk {
-  padding: 12px;
-  border-radius: 10px;
-  background: linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.00));
-  border: 1px solid rgba(0,0,0,0.03);
-  display: flex;          /* NEW: Aligns items in a row */
-  gap: 16px;              /* NEW: Adds space between the image and text */
-  align-items: start;     /* NEW: Aligns everything to the top */
-}
-
-/* Add these new classes for the image and text */
-.talk-img {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;     /* Makes the image a circle. Change to 8px for rounded squares */
-  object-fit: cover;      /* Prevents the image from stretching */
-  flex-shrink: 0;         /* Prevents the image from shrinking on small screens */
-  border: 1px solid var(--glass);
-}
-
-.talk-content {
-  flex: 1;                /* Allows the text to take up the remaining space */
-}
-    :root{
-      --bg:#ffffff;
-      --card:#fafafa;
-      --muted:#374151;
-      --accent:#004c23; /* fitchburg maroon-like */
-      --accent-2:#f4b41a; /* accent gold */
+    :root {
+      --bg: #ffffff;
+      --card: #fafafa;
+      --muted: #374151;
+      --accent: #004c23; /* fitchburg maroon-like */
+      --accent-2: #f4b41a; /* accent gold */
       --glass: rgba(0,0,0,0.04);
-      --max-width:1100px;
+      --max-width: 1100px;
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       color-scheme: light;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#fff 0%, #f7f7f9 100%);color:var(--muted)}
-    a{color:var(--accent);text-decoration:none}
-    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#a03b3b);display:grid;place-items:center;font-weight:800;color:white}
-    .logo span{font-size:22px}
-    h1{margin:0;font-size:20px}
-    .subtitle{color:var(--muted);font-size:13px}
-    nav a{margin-left:18px;font-weight:600;color:var(--muted)}
     
-    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:28px;align-items:start}
-    .card{background:var(--card);border:1px solid var(--glass);padding:18px;border-radius:12px;box-shadow:0 6px 20px rgba(20,20,30,0.04)}
-    .hero-left h2{margin:0 0 8px 0;font-size:28px}
-    .lead{color:var(--muted);margin-bottom:14px; line-height: 1.5}
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; background: linear-gradient(180deg, #fff 0%, #f7f7f9 100%); color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s ease; }
+    a:hover { opacity: 0.8; }
+    
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 28px; }
+    
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .logo { width: 64px; height: 64px; border-radius: 8px; background: linear-gradient(135deg, var(--accent), #a03b3b); display: grid; place-items: center; font-weight: 800; color: white; }
+    .logo span { font-size: 22px; }
+    h1 { margin: 0; font-size: 20px; }
+    .subtitle { color: var(--muted); font-size: 13px; }
+    nav a { margin-left: 18px; font-weight: 600; color: var(--muted); }
+    
+    .hero { display: grid; grid-template-columns: 1fr 360px; gap: 28px; margin-top: 28px; align-items: start; }
+    .card { background: var(--card); border: 1px solid var(--glass); padding: 18px; border-radius: 12px; box-shadow: 0 6px 20px rgba(20,20,30,0.04); }
+    
+    .hero-left h2 { margin: 0 0 8px 0; font-size: 28px; }
+    .lead { color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
 
-    .talks{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:16px}
-    .talk{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.00));border:1px solid rgba(0,0,0,0.03)}
-    .talk h3{margin:0 0 6px 0;font-size:16px}
-    .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
-    .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(122,43,43,0.06);font-weight:600;font-size:12px;color:var(--accent)}
+    .talks { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 16px; }
+    
+    /* Smooth Talk Cards */
+    .talk { 
+      padding: 16px; 
+      border-radius: 10px; 
+      background: linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.00)); 
+      border: 1px solid rgba(0,0,0,0.04); 
+      display: flex; 
+      gap: 16px; 
+      align-items: start; 
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .talk:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      background: linear-gradient(180deg, rgba(0,0,0,0.02), #ffffff);
+    }
+    .talk h3 { margin: 0 0 6px 0; font-size: 16px; line-height: 1.4; }
+    
+    .talk-img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 2px solid var(--glass); }
+    .talk-content { flex: 1; }
+    
+    .meta { font-size: 13px; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+    .tag { display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(122,43,43,0.06); font-weight: 600; font-size: 11px; color: var(--accent); margin-right: 4px; margin-bottom: 4px;}
 
-    .sidebar .next{font-size:14px;margin-bottom:6px}
-    .schedule{margin-top:12px}
-    table{width:100%;border-collapse:collapse}
-    th,td{padding:10px;border-bottom:1px dashed rgba(0,0,0,0.06);text-align:left;font-size:13px}
-    th{color:var(--muted);font-weight:700}
+    /* Abstract Toggle */
+    .abstract { margin-top: 12px; font-size: 13px; }
+    .abstract summary { cursor: pointer; color: var(--accent); font-weight: 600; user-select: none; display: inline-block; margin-bottom: 8px; transition: opacity 0.2s ease; }
+    .abstract summary:hover { opacity: 0.8; }
+    .abstract-text { margin: 0; line-height: 1.6; color: var(--muted); padding: 12px; background: var(--bg); border-left: 3px solid var(--accent); border-radius: 0 6px 6px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
 
-    .footer{margin-top:34px;padding:18px;border-radius:10px;text-align:center;color:var(--muted);font-size:13px}
+    .sidebar .next { font-size: 14px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; color: var(--accent); }
+    .schedule { margin-top: 16px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px 4px; border-bottom: 1px dashed rgba(0,0,0,0.08); text-align: left; font-size: 13px; }
+    th { color: var(--muted); font-weight: 700; }
+
+    .footer { margin-top: 34px; padding: 18px; border-radius: 10px; text-align: center; color: var(--muted); font-size: 13px; }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 10px 16px; border-radius: 8px; background: linear-gradient(90deg, var(--accent), #a24747); color: white; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 2px 8px rgba(0,76,35,0.2); }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,76,35,0.3); opacity: 1; color: white; }
+    .muted { color: var(--muted); }
+    
+    /* Search Bar */
+    .search { width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1); background: var(--bg); color: inherit; margin-bottom: 16px; font-family: 'Inter', sans-serif; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .search:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,76,35,0.1); }
+    
+    .section-title { margin-top: 40px; margin-bottom: 16px; font-size: 22px; border-bottom: 2px solid var(--glass); padding-bottom: 8px; }
 
     /* responsive */
     @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .logo{width:56px;height:56px}
+      .hero { grid-template-columns: 1fr; }
+      .logo { width: 56px; height: 56px; }
     }
-
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#a24747);color:white;font-weight:700}
-    .muted{color:var(--muted)}
-    
-    /* Search Bar Styling */
-    .search{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.1);background:var(--bg);color:inherit;margin-bottom: 16px; font-family: 'Inter', sans-serif;}
-    .search:focus {outline: 2px solid var(--accent); border-color: transparent;}
-    
-    .section-title {margin-top: 32px; margin-bottom: 8px; font-size: 22px;}
   </style>
 </head>
 
@@ -140,60 +119,51 @@
     <section class="hero">
       <div class="hero-left card">
         <h2 id="about">Welcome — Seminar Series</h2>
-        <p class="lead">The Fitchburg State Math Seminar invites faculty, students, and 
-            visitors to join us in exploring a wide range of topics in pure and applied mathematics. 
-            Each session is open to the public and offers a welcoming space for mathematical 
-            discussion—plus refreshments after the talk (sometimes)!</p>
+        <p class="lead">The Fitchburg State Math Seminar invites faculty, students, and visitors to join us in exploring a wide range of topics in pure and applied mathematics. Each session is open to the public and offers a welcoming space for mathematical discussion—plus refreshments after the talk (sometimes)!</p>
 
-        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-          <a class="btn" href="#schedule">See upcoming talks</a>
-          <a class="muted" href="#contact">Contact organizers</a>
+        <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top: 20px;">
+          <a class="btn" href="#upcoming-talks">See upcoming talks</a>
+          <a class="muted" href="#contact" style="font-weight: 600;">Contact organizers</a>
         </div>
 
-        <h3 style="margin-top:24px">Upcoming talks</h3>
+        <h3 style="margin-top:32px; margin-bottom: 8px;">Upcoming talks</h3>
         <div class="talks" id="upcoming-talks">
 
-           <article class="talk">
-              <img src="../images/leah.png" alt="Leah Sturman Placeholder" class="talk-img">
-              <div class="talk-content">
-              <div class="meta">April 7, 2026 — 3:30pm • Mazzaferro Center</div>
-              <h3>Counting Methods from the Perspective of Integer Partitions</h3>
-              <div class="muted">Dr. <a href="https://www.southernct.edu/directory/sturmanl1">Leah Sturman</a>(Assistant Professor at Southern Connecticut State <U></U>niversity)</div>
-              
-              <div style="margin-top:8px">
-              <span class="tag">Number Theory</span> 
-              <span class="tag">Combinatorics</span>
+          <article class="talk">
+            <img src="https://ui-avatars.com/api/?name=Gerald+Higdon&background=004c23&color=fff" alt="Dr. Gerald Higdon" class="talk-img">
+            <div class="talk-content">
+              <div class="meta">Oct 27, 2026 — 3:30pm • Percival Hall 209</div>
+              <h3>Formal Power Series, Generating Functions, Connections, Tricks, Applications</h3>
+              <div class="muted">Dr. <a href="https://www.fitchburgstate.edu/about/directory/gerald-higdon">Gerald Higdon</a> (Professor at Fitchburg State University)</div>
+              <div style="margin-top:10px">
+                <span class="tag">Combinatorics</span> 
+                <span class="tag">Special Functions</span>
               </div>
-        <details class="abstract">
-      <summary>Read Abstract</summary>
-      <p class="abstract-text">
-                Often, the most intuitive way to count something is to make a list of all the options and then count them. 
-                However, this method is prone to small, hard to find mistakes (imagine missing one case from a list of hundreds). 
-                Also, it's tedious! How can we avoid directly counting the elements of a set? We will explore some of 
-                the methods used in combinatorics, particularly generating functions, diagrams, and recursions from the perspective 
-                of integer partitions.
-      </p>
-    </details>
-              </div>
-           </article>
-        </div>
+              <details class="abstract">
+                <summary>Read Abstract</summary>
+                <p class="abstract-text">
+                  This presentation begins with a careful definition of an abstract mathematical object called a ring. It then proceeds to show that the set of Formal Power Series forms a ring. To show this involves some tricky double infinite sums which are explained in careful detail. Multiplicative inverses in the ring of Formal Power Series are developed and two more “tricky” double infinite sums are considered. The talk concludes with the development of the exponential function and various properties of this function strictly from the theory of formal power series.
+                </p>
+              </details>
+            </div>
+          </article>
 
+        </div>
       </div>
 
       <aside class="sidebar card" style="position:relative">
         <input type="text" id="search" class="search" placeholder="Search talks by title, topic, or speaker..." />
         
         <div class="next">Next talk</div>
-        <div style="font-weight:700">April 7, 2026 — 3:30pm</div>
-        <div class="muted" style="margin-bottom:12px">Dr. Dr. <a href="https://www.southernct.edu/directory/sturmanl1">Leah Sturman</a> — Counting Methods from the Perspective of Integer Partitions</div>
+        <div style="font-weight:700">Dec 1, 2026 — 3:30pm</div>
+        <div class="muted" style="margin-bottom:12px; line-height: 1.5;">Dr. <a href="https://www.fitchburgstate.edu/about/directory/gerald-higdon">Gerald Higdon</a> — Binomial Probability, Euler Summability, Bernstein Polynomial Approximability</div>
 
         <div class="schedule" id="schedule">
-          <h4 style="margin:6px 0">Schedule</h4>
+          <h4 style="margin:6px 0; border-bottom: 1px solid var(--glass); padding-bottom: 4px;">Schedule</h4>
           <table>
             <thead><tr><th>Date</th><th>Speaker</th></tr></thead>
             <tbody>
-              <tr><td>TBA</td><td>Dr. <a href="">Eavesdropper</a></td></tr>
-             
+              <tr><td>TBA</td><td>Dr. <a href="#">Eavesdropper</a></td></tr>
             </tbody>
           </table>
         </div>
@@ -202,66 +172,96 @@
 
     <section id="archive">
       <h2 class="section-title">Past Talks • Archive</h2>
+      
       <div class="talks" id="archive-talks">
+        
         <article class="talk">
-         <img src="images/padi-fuster.jpg" alt="Dr. Padi Fuster" class="talk-img">
-         <div class="talk-content">
-         <div class="meta">Oct 31, 2025 — 2:00pm • Percival Hall 209</div>
-         <h3>The world through an analyst's lens...</h3>
-         <div class="muted">Dr. <a href="https://www.padifuster.com/">Padi Fuster</a> (NSF MPS Ascend Postdoctoral fellow at the University of Colorado Boulder)</div>
-         <div style="margin-top:8px">
-        <span class="tag">Partial Differential Equation (PDE)</span> 
-        <span class="tag">Differential Geometry</span>
-      </div>
-      </div>
-      </article>
+          <img src="images/gerry_pic.jpg" alt="Dr. Gerald Higdon" class="talk-img">
+          <div class="talk-content">
+            <div class="meta">Sep 29, 2026 — 3:30pm • Percival Hall 209</div>
+            <h3>Everything You Knew or Need to Know About Sequences and Series • <a href="../beamer/gerry_talk_1.pdf">Slides</a></h3>
+            <div class="muted">Dr. <a href="https://www.fitchburgstate.edu/about/directory/gerald-higdon">Gerald Higdon</a> (Professor at Fitchburg State University)</div>
+            <div style="margin-top:10px">
+              <span class="tag">Generating Functions</span> 
+            </div>
+          </div>
+        </article>
 
-
-      <div class="talks" id="archive-talks">
         <article class="talk">
-         <img src="images/padi-fuster.jpg" alt="Dr. Diego Villamizar" class="talk-img">
-         <div class="talk-content">
-         <div class="meta">April 25, 2025 — 2:00pm • Percival Hall 209</div>
-         <h3>Colored Tilings on Graphs • <a href="../beamer/diego-seminar.pdf">Slides</a></h3>
-         <div class="muted">Dr. <a href="https://sites.google.com/view/dvillami/">Diego Villamizar</a> (Assistant Professor at Xavier University of Louisiana)</div>
-         <div style="margin-top:8px"><span class="tag">Enumerative Combinatorics</span> <span class="tag">Percolation</span></div>
-      </div>
-      </div>
-      </article>
+          <img src="images/leah_pic.jpg" alt="Dr. Leah Sturman" class="talk-img">
+          <div class="talk-content">
+            <div class="meta">April 7, 2026 — 3:30pm • Mazzaferro Center</div>
+            <h3>Counting Methods from the Perspective of Integer Partitions • <a href="../beamer/leah-talk.pdf">Slides</a></h3>
+            <div class="muted">Dr. <a href="https://www.southernct.edu/directory/sturmanl1">Leah Sturman</a> (Assistant Professor at Southern Connecticut State University)</div>
+            <div style="margin-top:10px">
+              <span class="tag">Number Theory</span> 
+              <span class="tag">Combinatorics</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="talk">
+          <img src="images/padi_pic.jpg" alt="Dr. Padi Fuster" class="talk-img">
+          <div class="talk-content">
+            <div class="meta">Oct 31, 2025 — 2:00pm • Percival Hall 209</div>
+            <h3>The world through an analyst's lens...</h3>
+            <div class="muted">Dr. <a href="https://www.padifuster.com/">Padi Fuster</a> (NSF MPS Ascend Postdoctoral Fellow at the University of Colorado Boulder)</div>
+            <div style="margin-top:10px">
+              <span class="tag">Partial Differential Equation (PDE)</span> 
+              <span class="tag">Differential Geometry</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="talk">
+          <img src="images/diego_pic.jpg" alt="Dr. Diego Villamizar" class="talk-img">
+          <div class="talk-content">
+            <div class="meta">April 25, 2025 — 2:00pm • Percival Hall 209</div>
+            <h3>Colored Tilings on Graphs • <a href="../beamer/diego-seminar.pdf">Slides</a></h3>
+            <div class="muted">Dr. <a href="https://sites.google.com/view/dvillami/">Diego Villamizar</a> (Assistant Professor at Xavier University of Louisiana)</div>
+            <div style="margin-top:10px">
+              <span class="tag">Enumerative Combinatorics</span> 
+              <span class="tag">Percolation</span>
+            </div>
+          </div>
+        </article>
+        
       </div>
     </section>
 
-    <section id="contact" style="margin-top:32px">
+    <section id="contact" style="margin-top:40px">
       <div class="card">
-        <h3>Organizers</h3>
+        <h3 style="margin-top: 0;">Organizers</h3>
         <p class="muted">For scheduling and recording requests, contact the seminar organizers:</p>
-        <ul>
+        <ul style="line-height: 1.8;">
           <li>Prof. <a href="https://www.fitchburgstate.edu/about/directory/mary-ann-barbato">Mary Ann Barbato</a> — <a href="mailto:msaadi@fitchburgstate.edu">msaadi@fitchburgstate.edu</a></li>
           <li>Dr. Fernando Diaz Morera — <a href="mailto:ndiazmor@fitchburgstate.edu">ndiazmor@fitchburgstate.edu</a></li>
         </ul>
       </div>
     </section>
 
-    <div class="footer card">
+    <div class="footer card" style="background: transparent; border: none; box-shadow: none;">
       © <span id="year"></span> Fitchburg State University • Department of Mathematics 
     </div>
   </div>
 
   <script>
-    // small dynamic bits
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // client-side search (very small dataset)
     const search = document.getElementById('search');
     const talks = Array.from(document.querySelectorAll('.talk'));
     
-    // Wrapped in an if-statement just in case the element ever gets removed
     if (search) {
       search.addEventListener('input', () => {
         const q = search.value.trim().toLowerCase();
         talks.forEach(t => {
           const text = (t.innerText || '').toLowerCase();
-          t.style.display = text.indexOf(q) === -1 ? 'none' : '';
+          // Added a small opacity transition for smoother filtering
+          if (text.indexOf(q) === -1) {
+            t.style.display = 'none';
+          } else {
+            t.style.display = 'flex';
+          }
         });
       });
     }
